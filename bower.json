@@ -1,0 +1,16 @@
+{
+  "name": "tipi.base.spaces",
+  "homepage": "https://github.com/toolbarthomas/tipi.base.spaces",
+  "authors": [
+    "Thomas van der Velde <contact@toolbarthomas.net>"
+  ],
+  "description": "Gallery grid layout for Tipi",
+  "keywords": [
+    "toolbarthomas",
+    "modular",
+    "tipi",
+    "spaces"
+  ],
+  "license": "MIT",
+  "main": "_tipi.base.spaces.scss"
+}
