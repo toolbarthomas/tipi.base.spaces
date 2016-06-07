@@ -22,4 +22,19 @@
 		margin: 0;
 		padding: 0 0 0 $space-gutter;
 	}
+
+	@if $spaces-enable-gallery == true {
+		.spaces--gallery {
+			> .space {
+				a {
+					display: block;
+				}
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
 }
