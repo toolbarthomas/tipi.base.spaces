@@ -4,13 +4,13 @@
 		list-style: none;
 		margin: 0;
 		margin-left: -$space-gutter;
-		margin-top: -$space-gutter;
+		margin-bottom: -$space-gutter;
 		padding: 0;
 
 		@include clear(false, true);
 
 		> .space {
-			margin-top: $space-gutter;
+			margin-bottom: $space-gutter;
 		}
 	}
 
