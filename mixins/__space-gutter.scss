@@ -1,0 +1,14 @@
+@mixin space-gutter($selector:false, $gutter:false) {
+	@if $selector != false and $gutter != false {
+		.spaces {
+			&#{$selector} {
+				top: -$gutter;
+				margin-left: 0 - $gutter;
+
+				> .space {
+					padding: $gutter 0 0 $gutter;
+				}
+			}
+		}
+	}
+}

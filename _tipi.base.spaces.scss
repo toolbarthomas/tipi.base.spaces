@@ -1,9 +1,7 @@
 @import "__config";
 @import "__core";
-@import "__construct";
+
+@import "mixins/__space-gutter";
+@import "mixins/__space-per-row";
 
 @include core_spaces;
-
-@include construct_spaces(2, $phablet-min-width);
-@include construct_spaces(3, $tablet-min-width);
-@include construct_spaces(4, $tablet-landscape-min-width);

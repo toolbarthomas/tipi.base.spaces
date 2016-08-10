@@ -1,17 +1,12 @@
 @mixin core_spaces {
 	.spaces {
+		position: relative;
 		display: block;
 		list-style: none;
 		margin: 0;
-		margin-left: -$space-gutter;
-		margin-bottom: -$space-gutter;
 		padding: 0;
 
 		@include clear(false, true);
-
-		> .space {
-			margin-bottom: $space-gutter;
-		}
 	}
 
 	.space {
@@ -20,21 +15,10 @@
 		float: left;
 		width: 100%;
 		margin: 0;
-		padding: 0 0 0 $space-gutter;
 	}
 
-	@if $spaces-enable-gallery == true {
-		.spaces--gallery {
-			> .space {
-				a {
-					display: block;
-				}
-
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
-		}
-	}
+	@include space-gutter('', $default-space-gutter);
+	@include space-per-row(2, $phablet-min-width);
+	@include space-per-row(3, $tablet-min-width);
+	@include space-per-row(4, $tablet-landscape-min-width);
 }

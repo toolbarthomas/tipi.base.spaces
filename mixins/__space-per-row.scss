@@ -1,4 +1,4 @@
-@mixin construct_spaces($multiplier: 1, $min-width:0) {
+@mixin space-per-row($multiplier: 1, $min-width:false) {
 	@include breakpoint($min-width) {
 		.space {
 			width: 100% / $multiplier;
