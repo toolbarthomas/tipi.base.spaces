@@ -1,5 +1,12 @@
-@mixin space-per-row($multiplier: 1, $min-width:false) {
-	@include breakpoint($min-width) {
+@mixin space-per-row(
+	$multiplier: 1,
+	$min-width: false,
+	$max-width: false
+) {
+	@include breakpoint(
+		$min-width: $min-width,
+		$max-width: $max-width
+	) {
 		.space {
 			width: 100% / $multiplier;
 
