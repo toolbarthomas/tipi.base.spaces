@@ -1,40 +1,49 @@
 @mixin core_spaces {
 	.spaces {
-		display: block;
-		list-style: none;
-		margin: 0;
-		margin-left: -$space-gutter;
-		margin-top: -$space-gutter;
-		padding: 0;
+		display: table; /* Remove the white space between each column on the Stock Android Jellybean Browser */
+		display: block\9; /* Internet Explorer 9 fix for calc function on element with table display property */
+		font-size: 0; /* Remove the white space between columns */
+		text-align: left; /* Prevent columns from aligning to center or right when a parent element has the text-align property */
+		direction: ltr;
+		table-layout: fixed;
+		width: 100%;
+	}
 
-		@include clear(false, true);
+	.spaces--right {
+		text-align: right;
+	}
 
-		> .space {
-			margin-top: $space-gutter;
-		}
+	.spaces--center {
+		text-align: center;
 	}
 
 	.space {
-		position: relative;
-		display: block;
-		float: left;
-		width: 100%;
-		margin: 0;
-		padding: 0 0 0 $space-gutter;
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+		@include responsive-font-size('default-font-size');
 	}
 
-	@if $spaces-enable-gallery == true {
-		.spaces--gallery {
-			> .space {
-				a {
-					display: block;
-				}
+	@include spaces-layout(
+		$horizontal-gutter: $space-horizontal-gutter,
+		$vertical-gutter: $space-vertical-gutter
+	);
 
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
-		}
+	@include breakpoint($phablet-min-width) {
+		@include spaces-layout(
+			$space-per-row: 2
+		);
+	}
+
+	@include breakpoint($tablet-min-width) {
+		@include spaces-layout(
+			$space-per-row: 3
+		);
+	}
+
+	@include breakpoint($tablet-landscape-min-width) {
+		@include spaces-layout(
+			$space-per-row: 4
+		);
 	}
 }

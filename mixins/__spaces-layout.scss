@@ -1,0 +1,49 @@
+$spaces-previous-vertical-gutter: false !default;
+
+@mixin spaces-layout(
+	$horizontal-gutter: false,
+	$vertical-gutter: false,
+	$space-per-row: false,
+	$selector: null
+) {
+	.spaces {
+		&#{$selector} {
+			@if $horizontal-gutter != false {
+				margin-left: -$horizontal-gutter;
+				width: calc(100% + #{$horizontal-gutter});
+			} @else {
+				width: 100%;
+			}
+
+			> .space {
+				@if $space-per-row != false {
+					width: 100% / $space-per-row;
+				} @else {
+					width: 100%;
+				}
+
+				@if $horizontal-gutter != false {
+					padding-left: $horizontal-gutter;
+				}
+
+				&:nth-child(1n+1) {
+					@if $vertical-gutter != false {
+						margin-top: $vertical-gutter;
+						$spaces-previous-vertical-gutter: $vertical-gutter !global;
+					}
+					@else {
+						margin-top: $spaces-previous-vertical-gutter;
+					}
+				}
+
+				@if $space-per-row != false {
+					@for $i from 1 through $space-per-row {
+						&:nth-child(#{$i}) {
+							margin-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
