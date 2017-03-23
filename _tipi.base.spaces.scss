@@ -1,7 +1,6 @@
 @import "__config";
 @import "__core";
 
-@import "mixins/__space-gutter";
-@import "mixins/__space-per-row";
+@import "mixins/__spaces-layout";
 
 @include core_spaces;
