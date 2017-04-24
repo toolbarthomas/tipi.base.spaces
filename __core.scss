@@ -29,19 +29,19 @@
 		$vertical-gutter: $space-vertical-gutter
 	);
 
-	@include breakpoint($phablet-min-width) {
+	@include breakpoint(viewport(phablet, min-width)) {
 		@include spaces-layout(
 			$space-per-row: 2
 		);
 	}
 
-	@include breakpoint($tablet-min-width) {
+	@include breakpoint(viewport(tablet, min-width)) {
 		@include spaces-layout(
 			$space-per-row: 3
 		);
 	}
 
-	@include breakpoint($tablet-landscape-min-width) {
+	@include breakpoint(viewport(tablet-landscape, min-width)) {
 		@include spaces-layout(
 			$space-per-row: 4
 		);
